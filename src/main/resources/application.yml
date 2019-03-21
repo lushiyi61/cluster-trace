@@ -1,0 +1,22 @@
+server:
+  port: 8801 #服务端口号
+
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: Trace-Server
+
+eureka:
+  instance:
+    hostname: 127.0.0.1 #当前服务实例ip，eureka会以此ip + server.port作为服务url供其他服务依赖调用
+  client:
+    serviceUrl: #服务注册中心的配置内容，指定服务注册中心的位置（包含注册中心用户名、密码、ip、端口）
+      defaultZone: http://user:123456@127.0.0.1:8800/eureka/
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
